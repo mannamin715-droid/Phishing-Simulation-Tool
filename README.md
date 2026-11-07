@@ -21,6 +21,14 @@ The application allows users to interact with a simulated phishing email, either
 - Recent activity history with timestamps
 
 ## Technologies Used
+- Python
+- Flask
+- SQLite
+- HTML
+- CSS
+- JavaScript
+- Git and GitHub
+  
 ## Project Screenshots
 
 ### 1. Initial Application
