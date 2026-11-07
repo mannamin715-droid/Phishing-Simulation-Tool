@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phishing Awareness Simulation</title>
+
+    <style>
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px 20px;
+        }
+
+        h1, .subtitle {
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #cbd5e1;
+        }
+
+        .email {
+            background: #1e293b;
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .sender {
+            color: #94a3b8;
+        }
+
+        button {
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+        }
+
+        .verify {
+            background: #38bdf8;
+        }
+
+        .report {
+            background: #4ade80;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Phishing Email Simulation</h1>
+    <p class="subtitle">
+        Cybersecurity Awareness Training Environment
+    </p>
+
+    <div class="email">
+        <h2>Security Alert: Unusual Login Activity</h2>
+
+        <p class="sender">
+            From: security@training.example
+        </p>
+
+        <p>Hello,</p>
+
+        <p>
+            We noticed suspicious activity on your account.
+            Please verify your account immediately to prevent
+            temporary suspension.
+        </p>
+
+        <p>
+            If you do not verify your account,
+            your access may be restricted.
+        </p>
+
+        <button class="verify"
+                onclick="showResult('clicked')">
+            Verify Account
+        </button>
+
+        <button class="report"
+                onclick="showResult('reported')">
+            Report Phishing
+        </button>
+
+        <p id="result" role="status"></p>
+    </div>
+
+    <script>
+        async function showResult(action) {
+            const result = document.getElementById("result");
+
+            try {
+                const response = await fetch("/record-event", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        event_type: action
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to save event");
+                }
+
+                if (action === "clicked") {
+                    result.textContent =
+                        "Simulation Alert: You clicked a suspicious link. " +
+                        "This event was recorded in the database.";
+                    result.style.color = "#f87171";
+                } else {
+                    result.textContent =
+                        "Great job! You reported a phishing email. " +
+                        "This event was recorded in the database.";
+                    result.style.color = "#4ade80";
+                }
+
+            } catch (error) {
+                result.textContent =
+                    "Unable to record the event. Please try again.";
+                result.style.color = "#f87171";
+                console.error(error);
+            }
+        }
+    </script>
+
+</body>
+</html>
