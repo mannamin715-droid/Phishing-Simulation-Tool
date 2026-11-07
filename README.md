@@ -24,19 +24,19 @@ The application allows users to interact with a simulated phishing email, either
 ## Project Screenshots
 
 ### 1. Initial Application
-![Initial Application](screenshots/0%20intial%20application.png)
+![Initial Application](/0%20intial%20application.png)
 
 ### 2. Phishing Email Simulation
-![Phishing Email](screenshots/1.%20Phishing%20Email%20Simulation.png)
+![Phishing Email](/1.%20Phishing%20Email%20Simulation.png)
 
 ### 3. Phishing Reported
-![Phishing Reported](screenshots/2.%20Phishing%20Reported.png)
+![Phishing Reported](/2.%20Phishing%20Reported.png)
 
 ### 4. Suspicious Link Detection
-![Suspicious Link](screenshots/3.%20Suspicious-%20link.png)
+![Suspicious Link](/3.%20Suspicious-%20link.png)
 
 ### 5. Security Dashboard
-![Dashboard](screenshots/4.%20Dashboard.png)
+![Dashboard](/4.%20Dashboard.png)
 
 - Python
 - Flask
